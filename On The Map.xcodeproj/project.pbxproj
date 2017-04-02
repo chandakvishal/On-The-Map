@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0405DA521E86B74D00FCB5E5 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405DA511E86B74D00FCB5E5 /* UdacityConstants.swift */; };
+		0405DA541E86B75900FCB5E5 /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405DA531E86B75900FCB5E5 /* ParseConstants.swift */; };
+		0405DA581E86C2C700FCB5E5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405DA571E86C2C700FCB5E5 /* TabBarViewController.swift */; };
+		0405DA5C1E86C4BB00FCB5E5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405DA5B1E86C4BB00FCB5E5 /* TableViewController.swift */; };
 		041616C91E7DAB7A00D4CDBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616C81E7DAB7A00D4CDBD /* AppDelegate.swift */; };
-		041616CB1E7DAB7A00D4CDBD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616CA1E7DAB7A00D4CDBD /* FirstViewController.swift */; };
-		041616CD1E7DAB7A00D4CDBD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616CC1E7DAB7A00D4CDBD /* SecondViewController.swift */; };
+		041616CB1E7DAB7A00D4CDBD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616CA1E7DAB7A00D4CDBD /* MapViewController.swift */; };
 		041616D01E7DAB7A00D4CDBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041616CE1E7DAB7A00D4CDBD /* Main.storyboard */; };
 		041616D21E7DAB7A00D4CDBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041616D11E7DAB7A00D4CDBD /* Assets.xcassets */; };
 		041616D51E7DAB7A00D4CDBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041616D31E7DAB7A00D4CDBD /* LaunchScreen.storyboard */; };
 		041616E01E7DAB7A00D4CDBD /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616DF1E7DAB7A00D4CDBD /* On_The_MapTests.swift */; };
 		041616EB1E7DAB7A00D4CDBD /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616EA1E7DAB7A00D4CDBD /* On_The_MapUITests.swift */; };
+		041616FA1E7DB16500D4CDBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616F91E7DB16500D4CDBD /* LoginViewController.swift */; };
+		041616FD1E7E193600D4CDBD /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616FC1E7E193600D4CDBD /* OTMConstants.swift */; };
+		041616FF1E7E199200D4CDBD /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041616FE1E7E199200D4CDBD /* OTMClient.swift */; };
+		041617011E7E414A00D4CDBD /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041617001E7E414A00D4CDBD /* GCDBlackBox.swift */; };
+		041617031E7E5BC900D4CDBD /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041617021E7E5BC900D4CDBD /* StudentInfo.swift */; };
+		041617051E7E6D3B00D4CDBD /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041617041E7E6D3B00D4CDBD /* LoginHandler.swift */; };
+		041617071E7EB5EA00D4CDBD /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041617061E7EB5EA00D4CDBD /* LocationFinder.swift */; };
+		048541211E8808030055B4C5 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541201E8808030055B4C5 /* UserLocationViewController.swift */; };
+		5AAAC95BFA6948A7767C8CCC /* PostUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAAC61C2B52FFC0762B32CC /* PostUserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0405DA511E86B74D00FCB5E5 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		0405DA531E86B75900FCB5E5 /* ParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
+		0405DA571E86C2C700FCB5E5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0405DA5B1E86C4BB00FCB5E5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		041616C51E7DAB7A00D4CDBD /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041616C81E7DAB7A00D4CDBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		041616CA1E7DAB7A00D4CDBD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		041616CC1E7DAB7A00D4CDBD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		041616CA1E7DAB7A00D4CDBD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		041616CF1E7DAB7A00D4CDBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		041616D11E7DAB7A00D4CDBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041616D41E7DAB7A00D4CDBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +64,15 @@
 		041616E61E7DAB7A00D4CDBD /* On The MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041616EA1E7DAB7A00D4CDBD /* On_The_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapUITests.swift; sourceTree = "<group>"; };
 		041616EC1E7DAB7A00D4CDBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		041616F91E7DB16500D4CDBD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		041616FC1E7E193600D4CDBD /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
+		041616FE1E7E199200D4CDBD /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		041617001E7E414A00D4CDBD /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		041617021E7E5BC900D4CDBD /* StudentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
+		041617041E7E6D3B00D4CDBD /* LoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
+		041617061E7EB5EA00D4CDBD /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
+		048541201E8808030055B4C5 /* UserLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationViewController.swift; sourceTree = "<group>"; };
+		5AAAC61C2B52FFC0762B32CC /* PostUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostUserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +123,14 @@
 		041616C71E7DAB7A00D4CDBD /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				041616FB1E7E192000D4CDBD /* Model */,
+				041616F81E7DB14E00D4CDBD /* View */,
 				041616C81E7DAB7A00D4CDBD /* AppDelegate.swift */,
-				041616CA1E7DAB7A00D4CDBD /* FirstViewController.swift */,
-				041616CC1E7DAB7A00D4CDBD /* SecondViewController.swift */,
 				041616CE1E7DAB7A00D4CDBD /* Main.storyboard */,
 				041616D11E7DAB7A00D4CDBD /* Assets.xcassets */,
 				041616D31E7DAB7A00D4CDBD /* LaunchScreen.storyboard */,
 				041616D61E7DAB7A00D4CDBD /* Info.plist */,
+				041617001E7E414A00D4CDBD /* GCDBlackBox.swift */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -126,6 +151,33 @@
 				041616EC1E7DAB7A00D4CDBD /* Info.plist */,
 			);
 			path = "On The MapUITests";
+			sourceTree = "<group>";
+		};
+		041616F81E7DB14E00D4CDBD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				041616CA1E7DAB7A00D4CDBD /* MapViewController.swift */,
+				041616F91E7DB16500D4CDBD /* LoginViewController.swift */,
+				0405DA571E86C2C700FCB5E5 /* TabBarViewController.swift */,
+				0405DA5B1E86C4BB00FCB5E5 /* TableViewController.swift */,
+				048541201E8808030055B4C5 /* UserLocationViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		041616FB1E7E192000D4CDBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041616FC1E7E193600D4CDBD /* OTMConstants.swift */,
+				041616FE1E7E199200D4CDBD /* OTMClient.swift */,
+				041617021E7E5BC900D4CDBD /* StudentInfo.swift */,
+				041617041E7E6D3B00D4CDBD /* LoginHandler.swift */,
+				041617061E7EB5EA00D4CDBD /* LocationFinder.swift */,
+				0405DA511E86B74D00FCB5E5 /* UdacityConstants.swift */,
+				0405DA531E86B75900FCB5E5 /* ParseConstants.swift */,
+				5AAAC61C2B52FFC0762B32CC /* PostUserInformation.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +314,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041616CD1E7DAB7A00D4CDBD /* SecondViewController.swift in Sources */,
+				041617051E7E6D3B00D4CDBD /* LoginHandler.swift in Sources */,
+				0405DA5C1E86C4BB00FCB5E5 /* TableViewController.swift in Sources */,
+				0405DA521E86B74D00FCB5E5 /* UdacityConstants.swift in Sources */,
+				041616FA1E7DB16500D4CDBD /* LoginViewController.swift in Sources */,
+				041616FF1E7E199200D4CDBD /* OTMClient.swift in Sources */,
+				041617071E7EB5EA00D4CDBD /* LocationFinder.swift in Sources */,
 				041616C91E7DAB7A00D4CDBD /* AppDelegate.swift in Sources */,
-				041616CB1E7DAB7A00D4CDBD /* FirstViewController.swift in Sources */,
+				041616FD1E7E193600D4CDBD /* OTMConstants.swift in Sources */,
+				041616CB1E7DAB7A00D4CDBD /* MapViewController.swift in Sources */,
+				041617011E7E414A00D4CDBD /* GCDBlackBox.swift in Sources */,
+				0405DA581E86C2C700FCB5E5 /* TabBarViewController.swift in Sources */,
+				041617031E7E5BC900D4CDBD /* StudentInfo.swift in Sources */,
+				0405DA541E86B75900FCB5E5 /* ParseConstants.swift in Sources */,
+				5AAAC95BFA6948A7767C8CCC /* PostUserInformation.swift in Sources */,
+				048541211E8808030055B4C5 /* UserLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +573,7 @@
 				041616F11E7DAB7A00D4CDBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		041616F21E7DAB7A00D4CDBD /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +582,7 @@
 				041616F41E7DAB7A00D4CDBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		041616F51E7DAB7A00D4CDBD /* Build configuration list for PBXNativeTarget "On The MapUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +591,7 @@
 				041616F71E7DAB7A00D4CDBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
