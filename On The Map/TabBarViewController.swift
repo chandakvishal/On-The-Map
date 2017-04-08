@@ -16,14 +16,19 @@ class TabBarViewController: UITabBarController {
     var lastName:  String?
     var sharedInstance = OnTheMapClient.sharedInstance()
 
-    @IBAction func logout(_ sender: Any) {
+    @IBOutlet weak var userInfoOutlet: UIBarButtonItem!
+    @IBOutlet weak var reloadOutlet:   UIBarButtonItem!
+    @IBOutlet weak var logoutOutlet:   UIBarButtonItem!
 
+    @IBAction func logout(_ sender: Any) {
+        setUIEnabled(false)
         sharedInstance.logoutHandler(self) {
             (success, errorString) in
-            performUIUpdatesOnMain {
+            self.sharedInstance.performUIUpdatesOnMain {
                 if success {
                     self.completeLogout()
                 } else {
+                    self.setUIEnabled(true)
                     self.showRetryAlert(title: "Network Problem",
                                         message: "Unable to logout.",
                                         option1: "Retry",
@@ -39,8 +44,7 @@ class TabBarViewController: UITabBarController {
 
     private func completeLogout() {
         print("Logout Completed successfully!")
-        let controller = storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-        present(controller, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func reloadButton(_ sender: Any) {
@@ -53,7 +57,7 @@ class TabBarViewController: UITabBarController {
 
             sharedInstance.getUserInformation(userId: sharedInstance.userId!) {
                 (success, firstName, lastName, errorString) in
-                performUIUpdatesOnMain {
+                self.sharedInstance.performUIUpdatesOnMain {
                     if success {
                         self.sharedInstance.firstName = firstName
                         self.sharedInstance.lastName = lastName
@@ -84,7 +88,7 @@ class TabBarViewController: UITabBarController {
         sharedInstance.studentLocationFinder() {
             (success, studentInfoArray, error) in
 
-            performUIUpdatesOnMain {
+            self.sharedInstance.performUIUpdatesOnMain {
 
                 if success {
                     if let mapVC = self.viewControllers?[0] as? MapViewController {
@@ -122,6 +126,14 @@ class TabBarViewController: UITabBarController {
 
         alertController.addAction(DestructiveAction)
         alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
+    }
+
+
+    func setUIEnabled(_ enabled: Bool) {
+        view.alpha = 0.5;
+        userInfoOutlet.isEnabled = enabled
+        reloadOutlet.isEnabled = enabled
+        logoutOutlet.isEnabled = enabled
     }
 }

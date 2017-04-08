@@ -30,6 +30,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
     }
 
+    var previousStudentAnnotations: [MKPointAnnotation]?
+
     func loadStudents(studentInfo: [StudentInfo]) {
 
         var annotations = [MKPointAnnotation]()
@@ -57,7 +59,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 annotations.append(annotation)
             }
         }
-        self.mapView.addAnnotations(annotations)
+        if let previousStudentAnnotations = previousStudentAnnotations {
+            mapView.removeAnnotations(previousStudentAnnotations)
+        }
+        previousStudentAnnotations = annotations
+        mapView.addAnnotations(annotations)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-// MARK: - MKMapViewDelegate
+    // MARK: - MKMapViewDelegate
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
@@ -85,9 +91,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return pinView
     }
 
-
-// This delegate method is implemented to respond to taps. It opens the system browser
-// to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             if let toOpen = view.annotation?.subtitle! {

@@ -53,7 +53,11 @@ extension OnTheMapClient {
 
             /* 3. Send the desired value(s) to completion handler */
             if error != nil {
-                completionHandlerForLogin(false, nil, nil, "Login Failed!")
+                var message = "Login Failed!"
+                if error.debugDescription.contains("The Internet connection appears to be offline.") {
+                    message = "No internet connectivity"
+                }
+                completionHandlerForLogin(false, nil, nil, message)
             } else {
 
                 /* GUARD: Was there any data returned? */
@@ -105,7 +109,7 @@ extension OnTheMapClient {
             if error != nil {
                 completionHandlerForLogout(false, "Unable to Logout")
             } else {
-                completionHandlerForLogout(true, "Unable to Logout")
+                completionHandlerForLogout(true, nil)
             }
         }
     }

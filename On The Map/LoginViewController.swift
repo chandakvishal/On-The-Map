@@ -25,6 +25,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton:       UIButton!
     @IBOutlet weak var signUpButton:      UIButton!
 
+    let LookDisabled = 0.5
+    let LookEnabled  = 1.0
+
     var session: URLSession!
 
     // MARK: Life Cycle
@@ -34,7 +37,7 @@ class LoginViewController: UIViewController {
         configureBackground()
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
-        self.view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
     }
 
     func tap(gesture: UITapGestureRecognizer) {
@@ -64,9 +67,10 @@ class LoginViewController: UIViewController {
                                                          username: usernameTextField.text!,
                                                          password: passwordTextField.text!) {
                 (success, errorString) in
-                performUIUpdatesOnMain {
+                OnTheMapClient.sharedInstance().performUIUpdatesOnMain {
                     if success {
                         self.completeLogin()
+                        self.setUIEnabled(true)
                     } else {
                         self.setUIEnabled(true)
                         self.displayError(errorString)
@@ -117,9 +121,9 @@ private extension LoginViewController {
 
         // adjust login button alpha
         if enabled {
-            loginButton.alpha = 1.0
+            loginButton.alpha = CGFloat(LookEnabled)
         } else {
-            loginButton.alpha = 0.5
+            loginButton.alpha = CGFloat(LookDisabled)
         }
     }
 
@@ -147,34 +151,6 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-
-    // MARK: Show/Hide Keyboard
-
-    func keyboardWillShow(_ notification: Notification) {
-        if !keyboardOnScreen {
-            view.frame.origin.y -= keyboardHeight(notification)
-        }
-    }
-
-    func keyboardWillHide(_ notification: Notification) {
-        if keyboardOnScreen {
-            view.frame.origin.y += keyboardHeight(notification)
-        }
-    }
-
-    func keyboardDidShow(_ notification: Notification) {
-        keyboardOnScreen = true
-    }
-
-    func keyboardDidHide(_ notification: Notification) {
-        keyboardOnScreen = false
-    }
-
-    private func keyboardHeight(_ notification: Notification) -> CGFloat {
-        let userInfo     = (notification as NSNotification).userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        return keyboardSize.cgRectValue.height - 100
     }
 
     private func resignIfFirstResponder(_ textField: UITextField) {
