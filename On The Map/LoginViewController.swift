@@ -21,9 +21,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var debugTextLabel:    UILabel!
     @IBOutlet weak var loginButton:       UIButton!
     @IBOutlet weak var signUpButton:      UIButton!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 
     let LookDisabled = 0.5
     let LookEnabled  = 1.0
@@ -35,18 +35,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackground()
-
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(gesture:)))
         view.addGestureRecognizer(tapGesture)
+        activityIndicatorView.hidesWhenStopped = true;
     }
 
     func tap(gesture: UITapGestureRecognizer) {
         userDidTapView(self)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        debugTextLabel.text = ""
+        self.activityIndicatorView.stopAnimating()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,10 +61,11 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: AnyObject) {
         userDidTapView(self)
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            debugTextLabel.text = "Username or Password Empty."
+            showAlert(message: "Username or Password Empty.")
         } else {
+            
             setUIEnabled(false)
-
+            activityIndicatorView.startAnimating()
             OnTheMapClient.sharedInstance().loginHandler(self,
                                                          username: usernameTextField.text!,
                                                          password: passwordTextField.text!) {
@@ -70,9 +73,11 @@ class LoginViewController: UIViewController {
                 OnTheMapClient.sharedInstance().performUIUpdatesOnMain {
                     if success {
                         self.completeLogin()
+                        self.activityIndicatorView.stopAnimating()
                         self.setUIEnabled(true)
                     } else {
                         self.setUIEnabled(true)
+                        self.activityIndicatorView.stopAnimating()
                         self.displayError(errorString)
                     }
                 }
@@ -84,7 +89,6 @@ class LoginViewController: UIViewController {
     // MARK: Change View to Maps
 
     private func completeLogin() {
-        debugTextLabel.text = ""
         print("Login Completed successfully!")
         let controller
                 = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
@@ -100,7 +104,6 @@ class LoginViewController: UIViewController {
 // MARK: Login
 
     private func backToLogin() {
-        debugTextLabel.text = ""
         let controller
                 = storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! UINavigationController
         present(controller, animated: true, completion: nil)
@@ -116,8 +119,6 @@ private extension LoginViewController {
         usernameTextField.isEnabled = enabled
         passwordTextField.isEnabled = enabled
         loginButton.isEnabled = enabled
-        debugTextLabel.text = ""
-        debugTextLabel.isEnabled = enabled
 
         // adjust login button alpha
         if enabled {
@@ -129,7 +130,7 @@ private extension LoginViewController {
 
     func displayError(_ errorString: String?) {
         if let errorString = errorString {
-            debugTextLabel.text = errorString
+            showAlert(message: errorString)
         }
     }
 
@@ -175,5 +176,11 @@ private extension LoginViewController {
 
     func unsubscribeFromAllNotifications() {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

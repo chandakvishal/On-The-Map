@@ -32,6 +32,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let student = studentList[(indexPath as NSIndexPath).row]
+        tableView.deselectRow(at: indexPath, animated: true)
         UIApplication.shared.open(URL(string: student.mediaURL!)!, options: [:]) {
             (success) in
             if !success {

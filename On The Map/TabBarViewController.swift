@@ -75,8 +75,8 @@ class TabBarViewController: UITabBarController {
         present(controller, animated: true, completion: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         // Do any additional setup after loading the view.
         loadStudentLocations()
@@ -91,8 +91,8 @@ class TabBarViewController: UITabBarController {
             self.sharedInstance.performUIUpdatesOnMain {
 
                 if success {
+                    StudentInfo.listOfStudents = studentInfoArray!
                     if let mapVC = self.viewControllers?[0] as? MapViewController {
-                        StudentInfo.listOfStudents = studentInfoArray!
                         mapVC.loadStudents(studentInfo: studentInfoArray!)
                     }
                     if let tableVC = self.viewControllers?[1] as? TableViewController {

@@ -14,9 +14,6 @@ class OnTheMapClient: NSObject {
     // shared session
     var session                          = URLSession.shared
 
-    // authentication state
-    var studentInfoArray: [StudentInfo]? = nil
-
     var sessionID: String? = nil
     var userId:    String? = nil
     var firstName: String? = nil

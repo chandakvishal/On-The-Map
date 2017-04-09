@@ -10,14 +10,13 @@ import Foundation
 import UIKit
 import MapKit
 
-class UserPinViewController: UIViewController, UITextViewDelegate {
+class UserPinViewController: UIViewController, UITextFieldDelegate {
 
     let sharedOTMClient = OnTheMapClient.sharedInstance()
 
-    @IBOutlet weak var linkTextView: UITextView!
+    @IBOutlet weak var linkTextView: UITextField!
     @IBOutlet weak var mapView:      MKMapView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var submitView:   UIView!
 
     var mapString: String?
     var mediaURL:  String?
@@ -98,14 +97,12 @@ class UserPinViewController: UIViewController, UITextViewDelegate {
                 firstName = sharedOTMClient.firstName
                 lastName = sharedOTMClient.lastName
                 mediaURL = linkTextView.text
-                let jsonBody = "{\"uniqueKey\": \"\(uniqueKey!)\", " +
-                               "\"firstName\": \"\(firstName!)\", \"lastName\": \"\(lastName!)\"," +
-                               "\"mapString\": \"\(mapString!)\", \"mediaURL\": \"\(mediaURL!)\"," +
-                               "\"latitude\": \(latitude!), \"longitude\": \(longitude!)}";
 
                 if self.sharedOTMClient.ObjectId != nil {
 
-                    sharedOTMClient.putUserInformation(jsonBody: jsonBody) {
+                    sharedOTMClient.putUserInformation(uniqueKey: uniqueKey!, firstName: firstName!,
+                                                       lastName: lastName!, mapString: mapString!,
+                                                       mediaURL: mediaURL!, latitude: latitude!, longitude: longitude!) {
                         (updatedAt, errorMessage) in
 
                         self.sharedOTMClient.performUIUpdatesOnMain {
@@ -118,7 +115,9 @@ class UserPinViewController: UIViewController, UITextViewDelegate {
                     }
                 } else {
 
-                    sharedOTMClient.postUserInformation(jsonBody: jsonBody) {
+                    sharedOTMClient.postUserInformation(uniqueKey: uniqueKey!, firstName: firstName!,
+                                                        lastName: lastName!, mapString: mapString!,
+                                                        mediaURL: mediaURL!, latitude: latitude!, longitude: longitude!) {
                         (success, errorMessage) in
                         self.sharedOTMClient.performUIUpdatesOnMain {
 
@@ -152,13 +151,10 @@ extension UserPinViewController {
                 = [UIInterfaceOrientationMask.portrait, UIInterfaceOrientationMask.portraitUpsideDown]
         return orientation
     }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     func showAlert(message: String) {

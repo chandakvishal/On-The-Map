@@ -77,12 +77,18 @@ extension OnTheMapClient {
         }
     }
 
-    func postUserInformation(jsonBody: String,
+    func postUserInformation(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String,
+                             latitude: Double, longitude: Double,
                              completionHandlerForPost: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
 
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         //No parameters in this case, thus sending an empty object
         let parameters = [String: AnyObject]()
+        
+        let jsonBody = "{\"uniqueKey\": \"\(uniqueKey)\", " +
+            "\"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\"," +
+            "\"mapString\": \"\(mapString)\", \"mediaURL\": \"\(mediaURL)\"," +
+        "\"latitude\": \(latitude), \"longitude\": \(longitude)}";
 
         /* 2. Make the request */
         let _ = taskForParsePOSTMethod(Parse.StudentLocationPath,
@@ -120,12 +126,18 @@ extension OnTheMapClient {
         }
     }
 
-    func putUserInformation(jsonBody: String,
+    func putUserInformation(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String,
+                            latitude: Double, longitude: Double,
                             completionHandlerForPost: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
 
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         //No parameters in this case, thus sending an empty object
         let parameters = [String: AnyObject]()
+        
+        let jsonBody = "{\"uniqueKey\": \"\(uniqueKey)\", " +
+            "\"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\"," +
+            "\"mapString\": \"\(mapString)\", \"mediaURL\": \"\(mediaURL)\"," +
+        "\"latitude\": \(latitude), \"longitude\": \(longitude)}";
 
         /* 2. Make the request */
         let _ = taskForPutMethod("\(Parse.StudentLocationPath)/\(OnTheMapClient.sharedInstance().ObjectId!)",

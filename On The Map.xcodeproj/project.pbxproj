@@ -27,6 +27,7 @@
 		041617071E7EB5EA00D4CDBD /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041617061E7EB5EA00D4CDBD /* LocationFinder.swift */; };
 		045586E31E990C4C00B954A7 /* UserPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045586E21E990C4C00B954A7 /* UserPinViewController.swift */; };
 		048541211E8808030055B4C5 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048541201E8808030055B4C5 /* UserLocationViewController.swift */; };
+		04924B651E9A11060098FCFF /* KeyboardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04924B641E9A11060098FCFF /* KeyboardUtils.swift */; };
 		5AAAC95BFA6948A7767C8CCC /* PostUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAAC61C2B52FFC0762B32CC /* PostUserInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		041617061E7EB5EA00D4CDBD /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
 		045586E21E990C4C00B954A7 /* UserPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPinViewController.swift; sourceTree = "<group>"; };
 		048541201E8808030055B4C5 /* UserLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationViewController.swift; sourceTree = "<group>"; };
+		04924B641E9A11060098FCFF /* KeyboardUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardUtils.swift; sourceTree = "<group>"; };
 		5AAAC61C2B52FFC0762B32CC /* PostUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostUserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				041616D31E7DAB7A00D4CDBD /* LaunchScreen.storyboard */,
 				041616D61E7DAB7A00D4CDBD /* Info.plist */,
 				041617001E7E414A00D4CDBD /* GCDBlackBox.swift */,
+				04924B641E9A11060098FCFF /* KeyboardUtils.swift */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				041617071E7EB5EA00D4CDBD /* LocationFinder.swift in Sources */,
 				041616C91E7DAB7A00D4CDBD /* AppDelegate.swift in Sources */,
 				041616FD1E7E193600D4CDBD /* OTMConstants.swift in Sources */,
+				04924B651E9A11060098FCFF /* KeyboardUtils.swift in Sources */,
 				041616CB1E7DAB7A00D4CDBD /* MapViewController.swift in Sources */,
 				041617011E7E414A00D4CDBD /* GCDBlackBox.swift in Sources */,
 				0405DA581E86C2C700FCB5E5 /* TabBarViewController.swift in Sources */,

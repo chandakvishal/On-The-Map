@@ -10,21 +10,26 @@ import Foundation
 import UIKit
 import MapKit
 
-class UserLocationViewController: UIViewController, UITextViewDelegate {
+class UserLocationViewController: UIViewController, UITextFieldDelegate {
 
     let sharedOTMClient = OnTheMapClient.sharedInstance()
 
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var findOnMapButton:     UIButton!
-    @IBOutlet weak var locationTextView:    UITextView!
+    @IBOutlet weak var locationTextView:    UITextField!
 
     var firstName: String?
     var lastName:  String?
     var geocoder = CLGeocoder()
+    var keyboardUtils: KeyboardUtils!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationTextView.delegate = self
+        keyboardUtils = KeyboardUtils(view: view, bottomTextField: locationTextView)
+        keyboardUtils.subscribeToKeyboardNotifications()
+        keyboardUtils.subscribeToKeyboardHideNotifications()
     }
 
     @IBAction func cancelLocationFinder(_ sender: Any) {
@@ -49,17 +54,14 @@ class UserLocationViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         present(alert, animated: true, completion: nil)
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
     }
 }
